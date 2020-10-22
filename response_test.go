@@ -12,7 +12,7 @@ func TestWebJson(t *testing.T) {
 	}
 
 	// Adicionando um valor qualquer
-	Exemplo.Saida = "Teste 123"
+	Exemplo.Saida = "Exemplo de Saída"
 
 	exit := Exit{}
 	exitTeste := exit.webJson(Exemplo)
