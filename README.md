@@ -1,4 +1,5 @@
 # go-response
 
-install
+install:
+
 go get github.com/RodrigoRea/go-response
