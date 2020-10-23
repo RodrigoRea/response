@@ -23,6 +23,17 @@ Erro: (bool) - (Caso 'Dados' seja vazio, erro irá conter 'true')
 
 Mensagem: (string)
 
+
+Utilize a função 'response.JSON(w, ?, ?)'
+
+Podendo ser enviada até 3 parâmetros, 
+
+sendo o 1° obrigatório contendo 'w http.ResponseWriter'
+
+sendo o 2° obrigatório podendo ser error ou struct
+
+sendo o 3° opcional podendo ser error ou struct (diferente do 2° parâmetro)
+
 # Exemplo de utilização
 
 <pre>
@@ -50,7 +61,7 @@ func respostaIV(w http.ResponseWriter, r *http.Request) {
 
 </pre>
 
-# Exmplo de saída JSON
+# Exemplo de saída JSON
 <pre>
     // respostaI
     {
