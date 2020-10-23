@@ -4,14 +4,31 @@ install:
 
 go get github.com/RodrigoRea/response
 
-# Exmplo de utilização
+# Descrição 
+
+O Pacote foi criado para facilitar e padronizar o formato de resposta em json, sempre respondendo em um objeto 
+
+<pre>{
+    "Dados":{},
+    "Erro": false,
+    "Mensagem":""
+}
+</pre> 
+
+Dados: (struct ou map)
+
+Erro: (bool) - (Caso 'Dados' seja vazio, erro irá conter 'true')
+
+é possível enviar o erro para a função e a própria função ira tratar o erro com a mensagem: EX: func respostaIV()
+
+Mensagem: (string)
+
+# Exemplo de utilização
 
 <pre>
 import "github.com/RodrigoRea/response" 
 
-.
-.
-.
+
 func respostaI(w http.ResponseWriter, r *http.Request) {
     data, err := busca()
     response.JSON(w, err, data)
@@ -33,10 +50,48 @@ func respostaIV(w http.ResponseWriter, r *http.Request) {
 
 </pre>
 
+# Exmplo de saída JSON
 <pre>
+    // respostaI
+    {
+        "Dados":{
+            "Nome":"Rodrigo",
+            "Cidade":"São Paulo"
+        },
+        "Erro": false,
+        "Mensagem":""
+    }
+
+
+    // respostaII (Sem erro)
+    {
+        "Dados":{
+            "Nome":"Rodrigo",
+            "Cidade":"São Paulo"
+        },
+        "Erro": false,
+        "Mensagem":""
+    }
+
+    // respostaII (Com erro)
     {
         "Dados":{},
-        "Erro":"",
-        "Mensagem":""
+        "Erro": true,
+        "Mensagem":"Nenhum resultado encontrado"
+    }
+
+
+    // respostaIII
+    {
+        "Dados":{},
+        "Erro": false,
+        "Mensagem":"Minha Mensagem"
+    }
+
+    // respostaIV
+    {
+        "Dados":{},
+        "Erro": true,
+        "Mensagem":"Mensagem de erro"
     }
 </pre>
