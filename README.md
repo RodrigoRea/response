@@ -39,6 +39,16 @@ sendo o 3° opcional podendo ser error ou struct (diferente do 2° parâmetro)
 <pre>
 import "github.com/RodrigoRea/response" 
 
+type User struct {
+    Nome string `json:"nome"`
+    Cidade string `json:"cidade"`
+} 
+
+func busca() (user User, err error){
+    user.Nome = "Rodrigo"
+    user.Cidade = "São Paulo"
+    return user, nil
+}
 
 func respostaI(w http.ResponseWriter, r *http.Request) {
     data, err := busca()
